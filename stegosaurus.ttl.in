@@ -1,0 +1,948 @@
+@prefix atom:<http://lv2plug.in/ns/ext/atom#> .
+@prefix doap: <http://usefulinc.com/ns/doap#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix lv2: <http://lv2plug.in/ns/lv2core#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix ui: <http://lv2plug.in/ns/extensions/ui#> .
+
+<http://nickbailey.co.nr/nickbailey#me>
+	a foaf:Person ;
+	foaf:name "Nick Bailey" ;
+	foaf:mbox <mailto:d@nickbailey.co.nr> ;
+	rdfs:seeAlso <http://nickbailey.co.nr/nickbailey> .
+
+<http://nickbailey.co.nr/plugins/stegosaurus>
+	a lv2:Plugin ,
+		lv2:stegosaurus ;
+	doap:maintainer <http://nickbailey.co.nr/nickbailey#me> ;
+	doap:name "stegosaurus synth" ;
+	doap:license <http://opensource.org/licenses/isc> ;
+	lv2:optionalFeature lv2:hardRTCapable ;
+	ui:ui <http://nickbailey.co.nr/plugins/stegosaurus#ui> ;
+	lv2:port [
+		a lv2:InputPort ,
+		atom:AtomPort ;
+		atom:bufferType atom:Sequence ;
+		atom:supports <http://lv2plug.in/ns/ext/midi#MidiEvent> ,
+		<http://lv2plug.in/ns/ext/patch#Message> ;
+		lv2:index 0;
+		lv2:symbol "Midi_in" ;
+		lv2:name "MIDI in"
+
+	] , [
+		a lv2:AudioPort ,
+		lv2:OutputPort ;
+		lv2:index 1 ;
+		lv2:symbol "out_left" ;
+		lv2:name "In left"
+	] , [
+		a lv2:AudioPort ,
+		lv2:OutputPort ;
+		lv2:index 2 ;
+		lv2:symbol "out_right" ;
+		lv2:name "Out right"
+	] , [
+
+		a lv2:ControlPort, lv2:InputPort;
+		lv2:index 3;
+		lv2:symbol "volume";
+		lv2:name "Volume";
+		lv2:minimum 0;
+		lv2:maximum 1;
+		lv2:default 0.6;
+
+
+
+
+
+
+
+
+	] , [
+		a lv2:ControlPort, lv2:InputPort;
+		lv2:index 4;
+		lv2:symbol "kick_osc1_active";
+		lv2:name "Kick OSC1 Active";
+		lv2:minimum 0;
+		lv2:maximum 1;
+		lv2:default 1;
+
+	] , [
+		a lv2:ControlPort, lv2:InputPort;
+		lv2:index 5;
+		lv2:symbol "kick_osc1_noise";
+		lv2:name "Kick OSC1 Noise";
+		lv2:minimum 0;
+		lv2:maximum 1;
+		lv2:default 0;
+
+	] , [
+		a lv2:ControlPort, lv2:InputPort;
+		lv2:index 6;
+		lv2:symbol "kick_osc1_pitch";
+		lv2:name "Kick OSC1 Pitch";
+		lv2:minimum 0;
+		lv2:maximum 1;
+		lv2:default 0.11538464;
+
+	] , [
+		a lv2:ControlPort, lv2:InputPort;
+		lv2:index 7;
+		lv2:symbol "kick_osc1_amp_attack";
+		lv2:name "Kick OSC1 Amp Attack";
+		lv2:minimum 0;
+		lv2:maximum 1;
+		lv2:default 0;
+
+	] , [
+		a lv2:ControlPort, lv2:InputPort;
+		lv2:index 8;
+		lv2:symbol "kick_osc1_amp_decay";
+		lv2:name "Kick OSC1 Amp Decay";
+		lv2:minimum 0;
+		lv2:maximum 1;
+		lv2:default 0.63333333;
+
+	] , [
+		a lv2:ControlPort, lv2:InputPort;
+		lv2:index 9;
+		lv2:symbol "kick_osc1_amp_sustain";
+		lv2:name "Kick OSC1 Amp Sustain";
+		lv2:minimum 0;
+		lv2:maximum 1;
+		lv2:default 0;
+
+	] , [
+		a lv2:ControlPort, lv2:InputPort;
+		lv2:index 10;
+		lv2:symbol "kick_osc1_amp_release";
+		lv2:name "Kick OSC1 Amp Release";
+		lv2:minimum 0;
+		lv2:maximum 1;
+		lv2:default 0.66666663;
+
+	] , [
+		a lv2:ControlPort, lv2:InputPort;
+		lv2:index 11;
+		lv2:symbol "kick_osc1_pitch_attack";
+		lv2:name "Kick OSC1 Pitch Attack";
+		lv2:minimum 0;
+		lv2:maximum 1;
+		lv2:default 0;
+
+	] , [
+		a lv2:ControlPort, lv2:InputPort;
+		lv2:index 12;
+		lv2:symbol "kick_osc1_pitch_decay";
+		lv2:name "Kick OSC1 Pitch Decay";
+		lv2:minimum 0;
+		lv2:maximum 1;
+		lv2:default 0.5333333;
+
+	] , [
+		a lv2:ControlPort, lv2:InputPort;
+		lv2:index 13;
+		lv2:symbol "kick_osc1_pitch_sustain";
+		lv2:name "Kick OSC1 Pitch Sustain";
+		lv2:minimum 0;
+		lv2:maximum 1;
+		lv2:default 0.19999999;
+
+	] , [
+		a lv2:ControlPort, lv2:InputPort;
+		lv2:index 14;
+		lv2:symbol "kick_osc1_pitch_release";
+		lv2:name "Kick OSC1 Pitch Release";
+		lv2:minimum 0;
+		lv2:maximum 1;
+		lv2:default 0.85000002;
+
+	] , [
+		a lv2:ControlPort, lv2:InputPort;
+		lv2:index 15;
+		lv2:symbol "kick_osc1_volume";
+		lv2:name "Kick OSC1 Volume";
+		lv2:minimum 0;
+		lv2:maximum 1;
+		lv2:default 0.51282048;
+
+	] , [
+		a lv2:ControlPort, lv2:InputPort;
+		lv2:index 16;
+		lv2:symbol "kick_osc2_active";
+		lv2:name "Kick OSC2 Active";
+		lv2:minimum 0;
+		lv2:maximum 1;
+		lv2:default 0.0;
+
+	] , [
+		a lv2:ControlPort, lv2:InputPort;
+		lv2:index 17;
+		lv2:symbol "kick_osc2_noise";
+		lv2:name "Kick OSC2 Noise";
+		lv2:minimum 0;
+		lv2:maximum 1;
+		lv2:default 1;
+
+	] , [
+		a lv2:ControlPort, lv2:InputPort;
+		lv2:index 18;
+		lv2:symbol "kick_osc2_pitch";
+		lv2:name "Kick OSC2 Pitch";
+		lv2:minimum 0;
+		lv2:maximum 1;
+		lv2:default 1;
+
+	] , [
+		a lv2:ControlPort, lv2:InputPort;
+		lv2:index 19;
+		lv2:symbol "kick_osc2_amp_attack";
+		lv2:name "Kick OSC2 Amp Attack";
+		lv2:minimum 0;
+		lv2:maximum 1;
+		lv2:default 0;
+
+	] , [
+		a lv2:ControlPort, lv2:InputPort;
+		lv2:index 20;
+		lv2:symbol "kick_osc2_amp_decay";
+		lv2:name "Kick OSC2 Amp Decay";
+		lv2:minimum 0;
+		lv2:maximum 1;
+		lv2:default 1;
+
+	] , [
+		a lv2:ControlPort, lv2:InputPort;
+		lv2:index 21;
+		lv2:symbol "kick_osc2_amp_sustain";
+		lv2:name "Kick OSC2 Amp Sustain";
+		lv2:minimum 0;
+		lv2:maximum 1;
+		lv2:default 1;
+
+	] , [
+		a lv2:ControlPort, lv2:InputPort;
+		lv2:index 22;
+		lv2:symbol "kick_osc2_amp_release";
+		lv2:name "Kick OSC2 Amp Release";
+		lv2:minimum 0;
+		lv2:maximum 1;
+		lv2:default 0;
+
+	] , [
+		a lv2:ControlPort, lv2:InputPort;
+		lv2:index 23;
+		lv2:symbol "kick_osc2_pitch_attack";
+		lv2:name "Kick OSC2 Pitch Attack";
+		lv2:minimum 0;
+		lv2:maximum 1;
+		lv2:default 0;
+
+	] , [
+		a lv2:ControlPort, lv2:InputPort;
+		lv2:index 24;
+		lv2:symbol "kick_osc2_pitch_decay";
+		lv2:name "Kick OSC2 Pitch Decay";
+		lv2:minimum 0;
+		lv2:maximum 1;
+		lv2:default 1;
+
+	] , [
+		a lv2:ControlPort, lv2:InputPort;
+		lv2:index 25;
+		lv2:symbol "kick_osc2_pitch_sustain";
+		lv2:name "Kick OSC2 Pitch Sustain";
+		lv2:minimum 0;
+		lv2:maximum 1;
+		lv2:default 1;
+
+	] , [
+		a lv2:ControlPort, lv2:InputPort;
+		lv2:index 26;
+		lv2:symbol "kick_osc2_pitch_release";
+		lv2:name "Kick OSC2 Pitch Release";
+		lv2:minimum 0;
+		lv2:maximum 1;
+		lv2:default 0;
+
+	] , [
+		a lv2:ControlPort, lv2:InputPort;
+		lv2:index 27;
+		lv2:symbol "kick_osc2_volume";
+		lv2:name "Kick OSC2 Volume";
+		lv2:minimum 0;
+		lv2:maximum 1;
+		lv2:default 0.5;
+
+
+
+
+
+
+	] , [
+		a lv2:ControlPort, lv2:InputPort;
+		lv2:index 28;
+		lv2:symbol "snare_osc1_active";
+		lv2:name "Snare OSC1 Active";
+		lv2:minimum 0;
+		lv2:maximum 1;
+		lv2:default 1;
+
+	] , [
+		a lv2:ControlPort, lv2:InputPort;
+		lv2:index 29;
+		lv2:symbol "snare_osc1_noise";
+		lv2:name "Snare OSC1 Noise";
+		lv2:minimum 0;
+		lv2:maximum 1;
+		lv2:default 0.1025641;
+
+	] , [
+		a lv2:ControlPort, lv2:InputPort;
+		lv2:index 30;
+		lv2:symbol "snare_osc1_pitch";
+		lv2:name "Snare OSC1 Pitch";
+		lv2:minimum 0;
+		lv2:maximum 1;
+		lv2:default 0.1025641;
+
+	] , [
+		a lv2:ControlPort, lv2:InputPort;
+		lv2:index 31;
+		lv2:symbol "snare_osc1_amp_attack";
+		lv2:name "Snare OSC1 Amp Attack";
+		lv2:minimum 0;
+		lv2:maximum 1;
+		lv2:default 0;
+
+	] , [
+		a lv2:ControlPort, lv2:InputPort;
+		lv2:index 32;
+		lv2:symbol "snare_osc1_amp_decay";
+		lv2:name "Snare OSC1 Amp Decay";
+		lv2:minimum 0;
+		lv2:maximum 1;
+		lv2:default 0.5333333;
+
+	] , [
+		a lv2:ControlPort, lv2:InputPort;
+		lv2:index 33;
+		lv2:symbol "snare_osc1_amp_sustain";
+		lv2:name "Snare OSC1 Amp Sustain";
+		lv2:minimum 0;
+		lv2:maximum 1;
+		lv2:default 0;
+
+	] , [
+		a lv2:ControlPort, lv2:InputPort;
+		lv2:index 34;
+		lv2:symbol "snare_osc1_amp_release";
+		lv2:name "Snare OSC1 Amp Release";
+		lv2:minimum 0;
+		lv2:maximum 1;
+		lv2:default 0.61666667;
+
+	] , [
+		a lv2:ControlPort, lv2:InputPort;
+		lv2:index 35;
+		lv2:symbol "snare_osc1_pitch_attack";
+		lv2:name "Snare OSC1 Pitch Attack";
+		lv2:minimum 0;
+		lv2:maximum 1;
+		lv2:default 0;
+
+	] , [
+		a lv2:ControlPort, lv2:InputPort;
+		lv2:index 36;
+		lv2:symbol "snare_osc1_pitch_decay";
+		lv2:name "Snare OSC1 Pitch Decay";
+		lv2:minimum 0;
+		lv2:maximum 1;
+		lv2:default 0.5333333;
+
+	] , [
+		a lv2:ControlPort, lv2:InputPort;
+		lv2:index 37;
+		lv2:symbol "snare_osc1_pitch_sustain";
+		lv2:name "Snare OSC1 Pitch Sustain";
+		lv2:minimum 0;
+		lv2:maximum 1;
+		lv2:default 0;
+
+	] , [
+		a lv2:ControlPort, lv2:InputPort;
+		lv2:index 38;
+		lv2:symbol "snare_osc1_pitch_release";
+		lv2:name "Snare OSC1 Pitch Release";
+		lv2:minimum 0;
+		lv2:maximum 1;
+		lv2:default 0.58333337;
+
+	] , [
+		a lv2:ControlPort, lv2:InputPort;
+		lv2:index 39;
+		lv2:symbol "snare_osc1_volume";
+		lv2:name "KSnare OSC1 Volume";
+		lv2:minimum 0;
+		lv2:maximum 1;
+		lv2:default 1;
+
+	] , [
+		a lv2:ControlPort, lv2:InputPort;
+		lv2:index 40;
+		lv2:symbol "snare_osc2_active";
+		lv2:name "Snare OSC2 Active";
+		lv2:minimum 0;
+		lv2:maximum 1;
+		lv2:default 1;
+
+	] , [
+		a lv2:ControlPort, lv2:InputPort;
+		lv2:index 41;
+		lv2:symbol "snare_osc2_noise";
+		lv2:name "Snare OSC2 Noise";
+		lv2:minimum 0;
+		lv2:maximum 1;
+		lv2:default 0.9358974;
+
+	] , [
+		a lv2:ControlPort, lv2:InputPort;
+		lv2:index 42;
+		lv2:symbol "snare_osc2_pitch";
+		lv2:name "Snare OSC2 Pitch";
+		lv2:minimum 0;
+		lv2:maximum 1;
+		lv2:default 1;
+
+	] , [
+		a lv2:ControlPort, lv2:InputPort;
+		lv2:index 43;
+		lv2:symbol "snare_osc2_amp_attack";
+		lv2:name "Snare OSC2 Amp Attack";
+		lv2:minimum 0;
+		lv2:maximum 1;
+		lv2:default 0;
+
+	] , [
+		a lv2:ControlPort, lv2:InputPort;
+		lv2:index 44;
+		lv2:symbol "snare_osc2_amp_decay";
+		lv2:name "Snare OSC2 Amp Decay";
+		lv2:minimum 0;
+		lv2:maximum 1;
+		lv2:default 0.60000002;
+
+	] , [
+		a lv2:ControlPort, lv2:InputPort;
+		lv2:index 45;
+		lv2:symbol "snare_osc2_amp_sustain";
+		lv2:name "Snare OSC2 Amp Sustain";
+		lv2:minimum 0;
+		lv2:maximum 1;
+		lv2:default 0;
+
+	] , [
+		a lv2:ControlPort, lv2:InputPort;
+		lv2:index 46;
+		lv2:symbol "snare_osc2_amp_release";
+		lv2:name "Snare OSC2 Amp Release";
+		lv2:minimum 0;
+		lv2:maximum 1;
+		lv2:default 0.60000002;
+
+	] , [
+		a lv2:ControlPort, lv2:InputPort;
+		lv2:index 47;
+		lv2:symbol "snare_osc2_pitch_attack";
+		lv2:name "Snare OSC2 Pitch Attack";
+		lv2:minimum 0;
+		lv2:maximum 1;
+		lv2:default 0;
+
+	] , [
+		a lv2:ControlPort, lv2:InputPort;
+		lv2:index 48;
+		lv2:symbol "snare_osc2_pitch_decay";
+		lv2:name "Snare OSC2 Pitch Decay";
+		lv2:minimum 0;
+		lv2:maximum 1;
+		lv2:default 0.69999999;
+
+	] , [
+		a lv2:ControlPort, lv2:InputPort;
+		lv2:index 49;
+		lv2:symbol "snare_osc2_pitch_sustain";
+		lv2:name "Snare OSC2 Pitch Sustain";
+		lv2:minimum 0;
+		lv2:maximum 1;
+		lv2:default 0;
+
+	] , [
+		a lv2:ControlPort, lv2:InputPort;
+		lv2:index 50;
+		lv2:symbol "snare_osc2_pitch_release";
+		lv2:name "Snare OSC2 Pitch Release";
+		lv2:minimum 0;
+		lv2:maximum 1;
+		lv2:default 1;
+
+	] , [
+		a lv2:ControlPort, lv2:InputPort;
+		lv2:index 51;
+		lv2:symbol "snare_osc2_volume";
+		lv2:name "Snare OSC2 Volume";
+		lv2:minimum 0;
+		lv2:maximum 1;
+		lv2:default 0.6025641;
+
+
+
+
+	] , [
+		a lv2:ControlPort, lv2:InputPort;
+		lv2:index 52;
+		lv2:symbol "clhat_osc1_active";
+		lv2:name "CLHat OSC1 Active";
+		lv2:minimum 0;
+		lv2:maximum 1;
+		lv2:default 1;
+
+	] , [
+		a lv2:ControlPort, lv2:InputPort;
+		lv2:index 53;
+		lv2:symbol "clhat_osc1_noise";
+		lv2:name "CLHat OSC1 Noise";
+		lv2:minimum 0;
+		lv2:maximum 1;
+		lv2:default 1;
+
+	] , [
+		a lv2:ControlPort, lv2:InputPort;
+		lv2:index 54;
+		lv2:symbol "clhat_osc1_pitch";
+		lv2:name "CLHat OSC1 Pitch";
+		lv2:minimum 0;
+		lv2:maximum 1;
+		lv2:default 1;
+
+	] , [
+		a lv2:ControlPort, lv2:InputPort;
+		lv2:index 55;
+		lv2:symbol "clhat_osc1_amp_attack";
+		lv2:name "CLHat OSC1 Amp Attack";
+		lv2:minimum 0;
+		lv2:maximum 1;
+		lv2:default 0.48333335;
+
+	] , [
+		a lv2:ControlPort, lv2:InputPort;
+		lv2:index 56;
+		lv2:symbol "clhat_osc1_amp_decay";
+		lv2:name "CLHat OSC1 Amp Decay";
+		lv2:minimum 0;
+		lv2:maximum 1;
+		lv2:default 0.44999999;
+
+	] , [
+		a lv2:ControlPort, lv2:InputPort;
+		lv2:index 57;
+		lv2:symbol "clhat_osc1_amp_sustain";
+		lv2:name "CLHat OSC1 Amp Sustain";
+		lv2:minimum 0;
+		lv2:maximum 1;
+		lv2:default 0;
+
+	] , [
+		a lv2:ControlPort, lv2:InputPort;
+		lv2:index 58;
+		lv2:symbol "clhat_osc1_amp_release";
+		lv2:name "CLHat OSC1 Amp Release";
+		lv2:minimum 0;
+		lv2:maximum 1;
+		lv2:default 0;
+
+	] , [
+		a lv2:ControlPort, lv2:InputPort;
+		lv2:index 59;
+		lv2:symbol "clhat_osc1_pitch_attack";
+		lv2:name "CLHat OSC1 Pitch Attack";
+		lv2:minimum 0;
+		lv2:maximum 1;
+		lv2:default 0;
+
+	] , [
+		a lv2:ControlPort, lv2:InputPort;
+		lv2:index 60;
+		lv2:symbol "clhat_osc1_pitch_decay";
+		lv2:name "CLHat OSC1 Pitch Decay";
+		lv2:minimum 0;
+		lv2:maximum 1;
+		lv2:default 1;
+
+	] , [
+		a lv2:ControlPort, lv2:InputPort;
+		lv2:index 61;
+		lv2:symbol "clhat_osc1_pitch_sustain";
+		lv2:name "CLHat OSC1 Pitch Sustain";
+		lv2:minimum 0;
+		lv2:maximum 1;
+		lv2:default 1;
+
+	] , [
+		a lv2:ControlPort, lv2:InputPort;
+		lv2:index 62;
+		lv2:symbol "clhat_osc1_pitch_release";
+		lv2:name "CLHat OSC1 Pitch Release";
+		lv2:minimum 0;
+		lv2:maximum 1;
+		lv2:default 0;
+
+	] , [
+		a lv2:ControlPort, lv2:InputPort;
+		lv2:index 63;
+		lv2:symbol "clhat_osc1_volume";
+		lv2:name "KCLHat OSC1 Volume";
+		lv2:minimum 0;
+		lv2:maximum 1;
+		lv2:default 0.34615386;
+
+	] , [
+		a lv2:ControlPort, lv2:InputPort;
+		lv2:index 64;
+		lv2:symbol "clhat_osc1_osc2_active";
+		lv2:name "CLHat OSC2 Active";
+		lv2:minimum 0;
+		lv2:maximum 1;
+		lv2:default 0;
+
+	] , [
+		a lv2:ControlPort, lv2:InputPort;
+		lv2:index 65;
+		lv2:symbol "clhat_osc1_osc2_noise";
+		lv2:name "CLHat OSC2 Noise";
+		lv2:minimum 0;
+		lv2:maximum 1;
+		lv2:default 1;
+
+	] , [
+		a lv2:ControlPort, lv2:InputPort;
+		lv2:index 66;
+		lv2:symbol "clhat_osc1_osc2_pitch";
+		lv2:name "CLHat OSC2 Pitch";
+		lv2:minimum 0;
+		lv2:maximum 1;
+		lv2:default 1;
+
+	] , [
+		a lv2:ControlPort, lv2:InputPort;
+		lv2:index 67;
+		lv2:symbol "clhat_osc1_osc2_amp_attack";
+		lv2:name "CLHat OSC2 Amp Attack";
+		lv2:minimum 0;
+		lv2:maximum 1;
+		lv2:default 0;
+
+	] , [
+		a lv2:ControlPort, lv2:InputPort;
+		lv2:index 68;
+		lv2:symbol "clhat_osc1_osc2_amp_decay";
+		lv2:name "CLHat OSC2 Amp Decay";
+		lv2:minimum 0;
+		lv2:maximum 1;
+		lv2:default 1;
+
+	] , [
+		a lv2:ControlPort, lv2:InputPort;
+		lv2:index 69;
+		lv2:symbol "clhat_osc1_osc2_amp_sustain";
+		lv2:name "CLHat OSC2 Amp Sustain";
+		lv2:minimum 0;
+		lv2:maximum 1;
+		lv2:default 1;
+
+	] , [
+		a lv2:ControlPort, lv2:InputPort;
+		lv2:index 70;
+		lv2:symbol "clhat_osc1_osc2_amp_release";
+		lv2:name "CLHat OSC2 Amp Release";
+		lv2:minimum 0;
+		lv2:maximum 1;
+		lv2:default 0;
+
+	] , [
+		a lv2:ControlPort, lv2:InputPort;
+		lv2:index 71;
+		lv2:symbol "clhat_osc1_osc2_pitch_attack";
+		lv2:name "CLHat OSC2 Pitch Attack";
+		lv2:minimum 0;
+		lv2:maximum 1;
+		lv2:default 0;
+
+	] , [
+		a lv2:ControlPort, lv2:InputPort;
+		lv2:index 72;
+		lv2:symbol "clhat_osc1_osc2_pitch_decay";
+		lv2:name "CLHat OSC2 Pitch Decay";
+		lv2:minimum 0;
+		lv2:maximum 1;
+		lv2:default 1;
+
+	] , [
+		a lv2:ControlPort, lv2:InputPort;
+		lv2:index 73;
+		lv2:symbol "clhat_osc1_osc2_pitch_sustain";
+		lv2:name "CLHat OSC2 Pitch Sustain";
+		lv2:minimum 0;
+		lv2:maximum 1;
+		lv2:default 1;
+
+	] , [
+		a lv2:ControlPort, lv2:InputPort;
+		lv2:index 74;
+		lv2:symbol "clhat_osc1_osc2_pitch_release";
+		lv2:name "CLHat OSC2 Pitch Release";
+		lv2:minimum 0;
+		lv2:maximum 1;
+		lv2:default 0;
+
+	] , [
+		a lv2:ControlPort, lv2:InputPort;
+		lv2:index 75;
+		lv2:symbol "clhat_osc1_osc2_volume";
+		lv2:name "CLHat OSC2 Volume";
+		lv2:minimum 0;
+		lv2:maximum 1;
+		lv2:default 0.5;
+
+
+
+
+
+	] , [
+		a lv2:ControlPort, lv2:InputPort;
+		lv2:index 76;
+		lv2:symbol "ophat_osc1_active";
+		lv2:name "OPHat OSC1 Active";
+		lv2:minimum 0;
+		lv2:maximum 1;
+		lv2:default 1;
+
+	] , [
+		a lv2:ControlPort, lv2:InputPort;
+		lv2:index 77;
+		lv2:symbol "ophat_osc1_noise";
+		lv2:name "OPHat OSC1 Noise";
+		lv2:minimum 0;
+		lv2:maximum 1;
+		lv2:default 0;
+
+	] , [
+		a lv2:ControlPort, lv2:InputPort;
+		lv2:index 78;
+		lv2:symbol "ophat_osc1_pitch";
+		lv2:name "OPHat OSC1 Pitch";
+		lv2:minimum 0;
+		lv2:maximum 1;
+		lv2:default 0.28205127;
+
+	] , [
+		a lv2:ControlPort, lv2:InputPort;
+		lv2:index 79;
+		lv2:symbol "ophat_osc1_amp_attack";
+		lv2:name "OPHat OSC1 Amp Attack";
+		lv2:minimum 0;
+		lv2:maximum 1;
+		lv2:default 0;
+
+	] , [
+		a lv2:ControlPort, lv2:InputPort;
+		lv2:index 80;
+		lv2:symbol "ophat_osc1_amp_decay";
+		lv2:name "OPHat OSC1 Amp Decay";
+		lv2:minimum 0;
+		lv2:maximum 1;
+		lv2:default 0.51666665;
+
+	] , [
+		a lv2:ControlPort, lv2:InputPort;
+		lv2:index 81;
+		lv2:symbol "ophat_osc1_amp_sustain";
+		lv2:name "OPHat OSC1 Amp Sustain";
+		lv2:minimum 0;
+		lv2:maximum 1;
+		lv2:default 0;
+
+	] , [
+		a lv2:ControlPort, lv2:InputPort;
+		lv2:index 82;
+		lv2:symbol "ophat_osc1_amp_release";
+		lv2:name "OPHat OSC1 Amp Release";
+		lv2:minimum 0;
+		lv2:maximum 1;
+		lv2:default 0.44999999;
+
+	] , [
+		a lv2:ControlPort, lv2:InputPort;
+		lv2:index 83;
+		lv2:symbol "ophat_osc1_pitch_attack";
+		lv2:name "OPHat OSC1 Pitch Attack";
+		lv2:minimum 0;
+		lv2:maximum 1;
+		lv2:default 0.36666667;
+
+	] , [
+		a lv2:ControlPort, lv2:InputPort;
+		lv2:index 84;
+		lv2:symbol "ophat_osc1_pitch_decay";
+		lv2:name "OPHat OSC1 Pitch Decay";
+		lv2:minimum 0;
+		lv2:maximum 1;
+		lv2:default 1;
+
+	] , [
+		a lv2:ControlPort, lv2:InputPort;
+		lv2:index 85;
+		lv2:symbol "ophat_osc1_pitch_sustain";
+		lv2:name "OPHat OSC1 Pitch Sustain";
+		lv2:minimum 0;
+		lv2:maximum 1;
+		lv2:default 1;
+
+	] , [
+		a lv2:ControlPort, lv2:InputPort;
+		lv2:index 86;
+		lv2:symbol "ophat_osc1_pitch_release";
+		lv2:name "OPHat OSC1 Pitch Release";
+		lv2:minimum 0;
+		lv2:maximum 1;
+		lv2:default 0.56666666
+
+	] , [
+		a lv2:ControlPort, lv2:InputPort;
+		lv2:index 87;
+		lv2:symbol "ophat_osc1_volume";
+		lv2:name "OPHat OSC1 Volume";
+		lv2:minimum 0;
+		lv2:maximum 1;
+		lv2:default 0.62820512;
+
+	] , [
+		a lv2:ControlPort, lv2:InputPort;
+		lv2:index 88;
+		lv2:symbol "ophat_osc1_osc2_active";
+		lv2:name "OPHat OSC2 Active";
+		lv2:minimum 0;
+		lv2:maximum 1;
+		lv2:default 1;
+
+	] , [
+		a lv2:ControlPort, lv2:InputPort;
+		lv2:index 89;
+		lv2:symbol "ophat_osc1_osc2_noise";
+		lv2:name "OPHat OSC2 Noise";
+		lv2:minimum 0;
+		lv2:maximum 1;
+		lv2:default 0;
+
+	] , [
+		a lv2:ControlPort, lv2:InputPort;
+		lv2:index 90;
+		lv2:symbol "ophat_osc1_osc2_pitch";
+		lv2:name "OPHat OSC2 Pitch";
+		lv2:minimum 0;
+		lv2:maximum 1;
+		lv2:default 0.08974361;
+
+	] , [
+		a lv2:ControlPort, lv2:InputPort;
+		lv2:index 91;
+		lv2:symbol "ophat_osc1_osc2_amp_attack";
+		lv2:name "OPHat OSC2 Amp Attack";
+		lv2:minimum 0;
+		lv2:maximum 1;
+		lv2:default 0;
+
+	] , [
+		a lv2:ControlPort, lv2:InputPort;
+		lv2:index 92;
+		lv2:symbol "ophat_osc1_osc2_amp_decay";
+		lv2:name "OPHat OSC2 Amp Decay";
+		lv2:minimum 0;
+		lv2:maximum 1;
+		lv2:default 0.63333333;
+
+	] , [
+		a lv2:ControlPort, lv2:InputPort;
+		lv2:index 93;
+		lv2:symbol "ophat_osc1_osc2_amp_sustain";
+		lv2:name "OPHat OSC2 Amp Sustain";
+		lv2:minimum 0;
+		lv2:maximum 1;
+		lv2:default 0;
+
+	] , [
+		a lv2:ControlPort, lv2:InputPort;
+		lv2:index 94;
+		lv2:symbol "ophat_osc1_osc2_amp_release";
+		lv2:name "OPHat OSC2 Amp Release";
+		lv2:minimum 0;
+		lv2:maximum 1;
+		lv2:default 0.56666666;
+
+	] , [
+		a lv2:ControlPort, lv2:InputPort;
+		lv2:index 95;
+		lv2:symbol "ophat_osc1_osc2_pitch_attack";
+		lv2:name "OPHat OSC2 Pitch Attack";
+		lv2:minimum 0;
+		lv2:maximum 1;
+		lv2:default 0;
+
+	] , [
+		a lv2:ControlPort, lv2:InputPort;
+		lv2:index 96;
+		lv2:symbol "ophat_osc1_osc2_pitch_decay";
+		lv2:name "OPHat OSC2 Pitch Decay";
+		lv2:minimum 0;
+		lv2:maximum 1;
+		lv2:default 0.96666664;
+
+	] , [
+		a lv2:ControlPort, lv2:InputPort;
+		lv2:index 97;
+		lv2:symbol "ophat_osc1_osc2_pitch_sustain";
+		lv2:name "OPHat OSC2 Pitch Sustain";
+		lv2:minimum 0;
+		lv2:maximum 1;
+		lv2:default 1;
+
+	] , [
+		a lv2:ControlPort, lv2:InputPort;
+		lv2:index 98;
+		lv2:symbol "ophat_osc1_osc2_pitch_release";
+		lv2:name "OPHat OSC2 Pitch Release";
+		lv2:minimum 0;
+		lv2:maximum 1;
+		lv2:default 1;
+
+	] , [
+		a lv2:ControlPort, lv2:InputPort;
+		lv2:index 99;
+		lv2:symbol "ophat_osc1_osc2_volume";
+		lv2:name "OPHat OSC2 Volume";
+		lv2:minimum 0;
+		lv2:maximum 1;
+		lv2:default 0.51282048;
+
+
+	].
+
+<http://nickbailey.co.nr/plugins/stegosaurus#ui>
+	a <@UI_TYPE@> ;
+	lv2:requiredFeature ui:idleInterface ;
+	lv2:extensionData ui:idleInterface ;
+	ui:portNotification [
+		ui:plugin <http://nickbailey.co.nr/plugins/stegosaurus> ;
+		lv2:symbol "gain"
+	] .
