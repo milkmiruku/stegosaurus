@@ -6,7 +6,7 @@ import sys
 
 # Variables for 'waf dist'
 APPNAME = 'stegosaurus.lv2'
-VERSION = '0.0.1'
+VERSION = '0.0.2'
 
 # Mandatory variables
 top = '.'

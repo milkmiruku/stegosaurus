@@ -435,7 +435,7 @@ void isMouseOverDeliriumUIWidget(deliriumUI* deliriumUI_window, cairo_t* cr, int
 	for (int widgetNumber=0; widgetNumber<numberOfUIWidgets-1; ++widgetNumber)
 	{
 		int group = deliriumUIWidgets[widgetNumber].group;
-
+		printf("%d\n", group);
 		if (deliriumUI_window->group_visible[group])
 		{
 

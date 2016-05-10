@@ -29,6 +29,7 @@ typedef struct {
 static void
 onReshape(PuglView* view, int width, int height)
 {
+
 	stegosaurusUI* self = (stegosaurusUI*)puglGetHandle(view);
 
 	setDeliriumUICurrentWindowSize(&self->deliriumUI_window, width, height);
@@ -107,6 +108,7 @@ onScroll(PuglView* view, int x, int y, float dx, float dy)
 
 	if (dy!=0) 
 	{
+
 		if (dy == -1)
 		{
 			decValue(&self->deliriumUI_window, cr);
@@ -247,9 +249,9 @@ instantiate(const LV2UI_Descriptor*   descriptor,
 	// Set up pugl window
 
 	self->view = puglInit(NULL, NULL);
+	puglInitResizable(self->view, false);
 	puglInitWindowParent(self->view, parent);
-	puglInitWindowSize(self->view, 1280,800);
-	puglInitResizable(self->view, true);
+	puglInitWindowSize(self->view, 800,360);
 	puglInitContextType(self->view, PUGL_CAIRO);
 	puglIgnoreKeyRepeat(self->view, false);
 

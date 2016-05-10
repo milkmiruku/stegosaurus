@@ -86,11 +86,13 @@ run(LV2_Handle instance, uint32_t n_samples)
 	LV2_ATOM_SEQUENCE_FOREACH(self->midi_in, ev)
 	{
 
+		printf("Some sort of atom event detected.........");
+
 		if (ev->body.type == uris->midi_Event)
 		{
 			uint8_t* const data = (uint8_t* const)(ev + 1);
 
-			// printf("Event detected - %d - %d - %f.\n", data[0], data[2], );
+			printf("Event detected - %d - %d - %d \n", data[0], data[1], data[2] );
 
 			if (data[0] == 0x90 && data[2] > 0)
 			{
