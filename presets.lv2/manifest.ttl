@@ -1,0 +1,80 @@
+@prefix atom: <http://lv2plug.in/ns/ext/atom#> .
+@prefix lv2: <http://lv2plug.in/ns/lv2core#> .
+@prefix pset: <http://lv2plug.in/ns/ext/presets#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix state: <http://lv2plug.in/ns/ext/state#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix doap: <http://usefulinc.com/ns/doap#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+
+<electro.ttl>
+	a pset:Preset ;
+	rdfs:seeAlso <electro.ttl> ;
+	lv2:appliesTo <http://nickbailey.co.nr/plugins/stegosaurus> .
+		
+<electro_new.ttl>
+	a pset:Preset ;
+	rdfs:seeAlso <electro_new.ttl> ;
+	lv2:appliesTo <http://nickbailey.co.nr/plugins/stegosaurus> .
+
+<electro_new2.ttl>
+	a pset:Preset ;
+	rdfs:seeAlso <electro_new2.ttl> ;
+	lv2:appliesTo <http://nickbailey.co.nr/plugins/stegosaurus> .
+
+<selectro_new3.ttl>
+	a pset:Preset ;
+	rdfs:seeAlso <electro_new3.ttl> ;
+	lv2:appliesTo <http://nickbailey.co.nr/plugins/stegosaurus> .
+
+<electronic.ttl>
+	a pset:Preset ;
+	rdfs:seeAlso <electronic.ttl> ;
+	lv2:appliesTo <http://nickbailey.co.nr/plugins/stegosaurus> .
+
+<electronicq.ttl>
+	a pset:Preset ;
+	rdfs:seeAlso <electronicq.ttl> ;
+	lv2:appliesTo <http://nickbailey.co.nr/plugins/stegosaurus> .
+
+<electronic2.ttl>
+	a pset:Preset ;
+	rdfs:seeAlso <electronic2.ttl> ;
+	lv2:appliesTo <http://nickbailey.co.nr/plugins/stegosaurus> .
+
+<electronic3.ttl>
+	a pset:Preset ;
+	rdfs:seeAlso <electronic.ttl> ;
+	lv2:appliesTo <http://nickbailey.co.nr/plugins/stegosaurus> .
+
+
+<electro2.ttl>
+	a pset:Preset ;
+	rdfs:seeAlso <electro2.ttl> ;
+	lv2:appliesTo <http://nickbailey.co.nr/plugins/stegosaurus> .
+
+<electro3.ttl>
+	a pset:Preset ;
+	rdfs:seeAlso <electro3.ttl> ;
+	lv2:appliesTo <http://nickbailey.co.nr/plugins/stegosaurus> .
+
+<electro4.ttl>
+	a pset:Preset ;
+	rdfs:seeAlso <electro4.ttl> ;
+	lv2:appliesTo <http://nickbailey.co.nr/plugins/stegosaurus> .
+
+<electro5.ttl>
+	a pset:Preset ;
+	rdfs:seeAlso <electro5.ttl> ;
+	lv2:appliesTo <http://nickbailey.co.nr/plugins/stegosaurus> .
+
+<electro6.ttl>
+	a pset:Preset ;
+	rdfs:seeAlso <electro6.ttl> ;
+	lv2:appliesTo <http://nickbailey.co.nr/plugins/stegosaurus> .
+
+
+
+
+

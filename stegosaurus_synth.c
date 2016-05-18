@@ -458,7 +458,7 @@ void stegosaurus_synth_play(float* const out_left, float* const out_right, uint3
 
 			
 
-						float env_osc2_amp_level_db = (voices[v]->env_osc2_amp_level * voices[v]->env_osc2_amp_level * voices[v]->env_osc2_amp_level) * master_volume; 
+						float env_osc2_amp_level_db = voices[v]->volume * (voices[v]->env_osc2_amp_level * voices[v]->env_osc2_amp_level * voices[v]->env_osc2_amp_level) * master_volume; 
 
 						//--------- ADSR pitch
 						// ATTACK
@@ -532,7 +532,7 @@ void stegosaurus_synth_play(float* const out_left, float* const out_right, uint3
 						if (new_pitch < 0) new_pitch = 0;
 						voices[v]->osc[1].frequency = new_pitch;
 
-						out += (osc2_volume[v] * (wavetable_tick( &voices[v]->osc[1] ) * 0.5) * env_osc2_amp_level_db);	
+						out += voices[v]->volume *  (osc2_volume[v] * (wavetable_tick( &voices[v]->osc[1] ) * 0.5) * env_osc2_amp_level_db);	
 
 
 					}	

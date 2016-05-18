@@ -6,7 +6,7 @@ import sys
 
 # Variables for 'waf dist'
 APPNAME = 'stegosaurus.lv2'
-VERSION = '0.0.2'
+VERSION = '0.0.3'
 
 # Mandatory variables
 top = '.'
@@ -100,6 +100,7 @@ def build(bld):
     obj.env['%sshlib_PATTERN' % ui_lang] = module_pat
 
     bld.install_files('${LV2DIR}/%s/waves' % bundle, bld.path.ant_glob('waves/*.*'))
+    bld.install_files('${LV2DIR}/stegosaurus-presets.lv2', bld.path.ant_glob('presets.lv2/*.*'))
 
 
 
