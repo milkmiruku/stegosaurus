@@ -1,8 +1,10 @@
 #!/usr/bin/env python
-from waflib.extras import autowaf as autowaf
 import waflib.Options as Options
 import re
-import sys 
+import sys
+sys.path.append('tools')
+from tools import autowaf as autowaf
+from tools import lv2 as lv2
 
 # Variables for 'waf dist'
 APPNAME = 'stegosaurus.lv2'
@@ -15,7 +17,7 @@ out = 'build'
 def options(opt):
     opt.load('compiler_c')
     opt.load('lv2')
-    if Options.platform == 'win32':
+    if sys.platform == 'win32':
         opt.load('compiler_cxx')
     autowaf.set_options(opt)
 
