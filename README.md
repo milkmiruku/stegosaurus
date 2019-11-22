@@ -1,7 +1,7 @@
 # stegosaurus
 stegosaurus is a Drum synth LV2 plugin.
 
-## Instalation
+## Installation
 ```
 ./waf configure
 ./waf
